@@ -901,6 +901,7 @@ std::wstring JSONValue::StringifyString(const std::wstring &str)
 		{
 			str_out += L"\\t";
 		}
+#ifdef CONVERT_UNICODE
 		else if (chr < L' ' || chr > 126)
 		{
 			str_out += L"\\u";
@@ -914,6 +915,7 @@ std::wstring JSONValue::StringifyString(const std::wstring &str)
 				chr <<= 4;
 			}
 		}
+#endif // CONVERT_UNICODE
 		else
 		{
 			str_out += chr;

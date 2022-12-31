@@ -149,7 +149,11 @@ void run_tests()
 
 	// Test case for issue #20.
 	test_output = wstring(L"| Testing for valid encoding of ASCII 126") + wstring(DESC_LENGTH - 39, L' ') + wstring(L" | ");
+#ifdef CONVERT_UNICODE
 	wstring issue_20_test = L"{\"test\":\"Value \\u00E0\"}";
+#else
+	wstring issue_20_test = L"{\"test\":\"Value ид\"}";
+#endif // CONVERT_UNICODE
 	json_value = JSON::Parse(issue_20_test.c_str());
 	if (json_value && json_value->Stringify() == issue_20_test)
 	{

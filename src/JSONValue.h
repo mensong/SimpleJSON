@@ -30,6 +30,8 @@
 
 #include "JSON.h"
 
+//#define CONVERT_UNICODE
+
 class JSON;
 
 enum JSONType { JSONType_Null, JSONType_String, JSONType_Bool, JSONType_Number, JSONType_Array, JSONType_Object };
